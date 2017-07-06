@@ -1,0 +1,22 @@
+{
+  "name": "react-html-converter",
+  "version": "0.1.0",
+  "description": "Converts a raw HTML string into React Elements. Does convert components too. Edit",
+  "main": "index.js",
+  "repository": "https://github.com/Sethorax/react-html-converter.git",
+  "author": "Sethorax <info@sethorax.com>",
+  "license": "MIT",
+  "dependencies": {
+    "parse5": "^3.0.2",
+    "react": "^15.6.1",
+    "react-attr-converter": "^0.2.0"
+  },
+  "devDependencies": {
+    "ava": "^0.20.0",
+    "react-dom": "^15.6.1",
+    "xo": "^0.18.2"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  }
+}
