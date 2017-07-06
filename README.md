@@ -1,4 +1,4 @@
-# react-html-converter
+# react-html-converter [![Build Status](https://travis-ci.org/Sethorax/react-html-converter.svg?branch=master)](https://travis-ci.org/Sethorax/react-html-converter) [![npm version](https://badge.fury.io/js/react-html-converter.svg)](https://badge.fury.io/js/react-html-converter)
 
 This module converts a raw HTML string to a React element or an array of React elements. Component rendering is also supported.
 
