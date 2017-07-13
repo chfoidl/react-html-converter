@@ -86,4 +86,31 @@ ReactHTMLConverter.prototype.convert = htmlString => {
 	return null;
 };
 
+ReactHTMLConverter.prototype.convertStatic = htmlString => {
+	if (typeof htmlString !== 'string') {
+		return null;
+	}
+
+	const html = htmlParser.parseFragment(htmlString);
+
+	if (html.childNodes.length > 0) {
+		let rootNode;
+
+		if (html.childNodes.length === 1) {
+			const node = html.childNodes[0];
+			rootNode = React.createElement(node.nodeName, Object.assign({
+				dangerouslySetInnerHTML: {
+					__html: htmlParser.serialize(node)
+				}
+			}, convertAttributes(node.attrs, 0)));
+		} else {
+			rootNode = React.createElement('div', {dangerouslySetInnerHTML: {__html: htmlString}});
+		}
+
+		return rootNode;
+	}
+
+	return null;
+};
+
 module.exports = ReactHTMLConverter;

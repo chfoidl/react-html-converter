@@ -38,6 +38,20 @@ test('parse react component from string', t => {
 	renderTest(t, element, '<div>hello world</div>');
 });
 
+test('parse as static html', t => {
+	const converter = new ReactHTMLConverter();
+	const html = '<ul class="list"><li>Text1</li><li>Text2</li></ul>';
+
+	renderTest(t, converter.convertStatic(html), html);
+});
+
+test('parse as static html with multiple siblings', t => {
+	const converter = new ReactHTMLConverter();
+	const html = '<ul class="list"><li>Text1</li><li>Text2</li></ul><div>Sibling</div>';
+
+	renderTest(t, converter.convertStatic(html), `<div>${html}</div>`);
+});
+
 test('parse styles', t => {
 	const converter = new ReactHTMLConverter();
 	const html = '<div style="background-color: #fff;"></div>';
