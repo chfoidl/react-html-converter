@@ -1,6 +1,6 @@
 {
   "name": "react-html-converter",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Converts a raw HTML string into React Elements. Does convert components too. Edit",
   "main": "dist/react-html-converter.js",
   "repository": "https://github.com/Sethorax/react-html-converter.git",

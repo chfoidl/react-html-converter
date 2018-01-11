@@ -1,7 +1,7 @@
 import test from 'ava';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ReactHTMLConverter from '../index';
+import ReactHTMLConverter from '../src/index';
 
 const Test = React.createClass({
 	render() {
