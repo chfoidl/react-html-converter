@@ -1,0 +1,23 @@
+{
+  "extends": "eslint-config-defaults",
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "describe": true,
+    "it": true,
+    "expect": true
+  },
+  "rules": {
+    "object-curly-spacing": ["error", "always"]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  }
+}
