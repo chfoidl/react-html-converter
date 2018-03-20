@@ -1,6 +1,6 @@
 {
   "name": "react-html-converter",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Converts a raw HTML string into React Elements or even React Components. Ships with integrations for node and browser.",
   "keywords": [
     "react",
@@ -29,8 +29,7 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "_test": "eslint src &&",
-    "test": "jest",
+    "test": "eslint src && jest",
     "prepublish": "npm run build",
     "build": "microbundle src/integrations/*.js -o x.js -f cjs --external all --sourcemap false"
   }
