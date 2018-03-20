@@ -5,7 +5,14 @@ import { getComponent } from './component-manager';
 const NODE_TYPE_TEXT = '#text';
 const NODE_TYPE_COMMENT = '#comment';
 
-export const traverseNodeTree = rootNode => {
+/**
+ * Returns an array of a node's child nodes.
+ *
+ * @export
+ * @param {Node} rootNode
+ * @returns {Array}
+ */
+export function traverseNodeTree(rootNode) {
 	const nodeTree = [];
 
 	for (let i = 0; i < rootNode.childNodes.length; i++) {
@@ -13,9 +20,19 @@ export const traverseNodeTree = rootNode => {
 	}
 
 	return (nodeTree.length === 1) ? nodeTree[0] : nodeTree;
-};
+}
 
-export const convertNode = (node, key) => {
+/**
+ * Converts a node.
+ * If the node is of either type text or comment, the value will be returned.
+ * Otherwise the node will be converted to a React element or component.
+ *
+ * @export
+ * @param {Node} node
+ * @param {string} key
+ * @returns {string|Object}
+ */
+export function convertNode(node, key) {
 	if (node.nodeName === NODE_TYPE_TEXT || node.nodeName === NODE_TYPE_COMMENT) {
 		return node.value || node.nodeValue;
 	}
@@ -35,9 +52,16 @@ export const convertNode = (node, key) => {
 	}
 
 	return React.createElement(tagName, attributes, children);
-};
+}
 
-export const convertAttributes = attrs => {
+/**
+ * Convert the node's attributes to their React counterpart.
+ *
+ * @export
+ * @param {Array} attrs
+ * @returns {Array}
+ */
+export function convertAttributes(attrs) {
 	const attributes = [];
 
 	if (!attrs) return attributes;
@@ -48,9 +72,16 @@ export const convertAttributes = attrs => {
 	}
 
 	return attributes;
-};
+}
 
-export const convertStylesToObject = styleString => {
+/**
+ * Convert inline styles to the React version.
+ *
+ * @export
+ * @param {string} styleString
+ * @returns {Object}
+ */
+export function convertStylesToObject(styleString) {
 	const styles = styleString.split(';').reduce((obj, styleDeclaration) => {
 		if (styleDeclaration) {
 			const parts = styleDeclaration.split(':');
@@ -71,5 +102,5 @@ export const convertStylesToObject = styleString => {
 	}, {});
 
 	return styles;
-};
+}
 

@@ -1,10 +1,22 @@
 import htmlParser from 'parse5';
 
-const parseFragment = (htmlString) => {
+/**
+ * Parse html string and return all nodes.
+ *
+ * @param {string} htmlString
+ * @returns {Object}
+ */
+function parseFragment(htmlString) {
 	return htmlParser.parseFragment(htmlString);
 }
 
-const serialize = (node) => {
+/**
+ * Returns the node's inner html content as a string.
+ *
+ * @param {Node} node
+ * @returns {string}
+ */
+function serialize(node) {
 	return htmlParser.serialize(node);
 }
 

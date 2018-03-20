@@ -1,6 +1,6 @@
 # react-html-converter [![Build Status](https://travis-ci.org/Sethorax/react-html-converter.svg?branch=master)](https://travis-ci.org/Sethorax/react-html-converter) [![npm version](https://badge.fury.io/js/react-html-converter.svg)](https://badge.fury.io/js/react-html-converter)
 
-This module converts a raw HTML string to a React element or an array of React elements. Component rendering is also supported.
+This module converts a raw HTML string to a React element or an array of React elements. Component rendering is also supported.  
 
 ## Installation
 
@@ -10,11 +10,30 @@ Install via **npm**:
 or **yarn**:  
 `yarn add react-html-converter`
 
+## General Info
+
+This module ships with two integrations. One for node and one for the browser.  
+The main reason behind having to versions is that altough the node version also works in the browser, the usage of `parse5` does add a lot to the overall bundle filesize. Therefore the browser version uses the native `DOMParser` instead of `parse5` to handle the html string parsing.
+
+Module usage is the same for node and for the browser.
+
+If you use this module in node.js just import the node integration:  
+
+```js
+import ReactHTMLConverter from 'react-html-converter/node'
+```
+
+If you use it in the browser import the browser integration:  
+
+```js
+import ReactHTMLConverter from 'react-html-converter/browser'
+```
+
 ## Example
 
 ```js
 import React from 'react';
-import ReactHTMLConverter from 'react-html-converter';
+import ReactHTMLConverter from 'react-html-converter/node';
 
 class Test extends React.Component {
     render() (
@@ -45,7 +64,7 @@ The ReactHTMLConverter is also able to create React components from the HTML str
 Please note that any sibling nodes of a React component will not be rendered! Make sure to wrap the component with a div element.
 
 ### Static rendering
-You can use the `convertStatic` method of the ReactHTMLConverter to render the given HTML string as static elements. React will not be aware of the content rendered by this method. React components will not be rendered by this method.
+You can use the static method `convertStatic` of the ReactHTMLConverter class to render the given HTML string as static elements. React will not be aware of the content rendered by this method and React components will not be rendered by this method.
 
 ## Disclosure
 
