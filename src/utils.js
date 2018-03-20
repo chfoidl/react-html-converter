@@ -16,7 +16,7 @@ export function traverseNodeTree(rootNode) {
 	const nodeTree = [];
 
 	for (let i = 0; i < rootNode.childNodes.length; i++) {
-		nodeTree.push(convertNode(rootNode.childNodes[i]));
+		nodeTree.push(convertNode(rootNode.childNodes[i], i));
 	}
 
 	return (nodeTree.length === 1) ? nodeTree[0] : nodeTree;
@@ -29,7 +29,7 @@ export function traverseNodeTree(rootNode) {
  *
  * @export
  * @param {Node} node
- * @param {string} key
+ * @param {number} key
  * @returns {string|Object}
  */
 export function convertNode(node, key) {
@@ -48,7 +48,7 @@ export function convertNode(node, key) {
 	const children = [];
 
 	for (let i = 0; i < node.childNodes.length; i++) {
-		children.push(convertNode(node.childNodes[i]));
+		children.push(convertNode(node.childNodes[i], i));
 	}
 
 	return React.createElement(tagName, attributes, children);
@@ -59,10 +59,11 @@ export function convertNode(node, key) {
  *
  * @export
  * @param {Array} attrs
- * @returns {Array}
+ * @param {number} key
+ * @returns {Object}
  */
-export function convertAttributes(attrs) {
-	const attributes = [];
+export function convertAttributes(attrs, key) {
+	const attributes = { key };
 
 	if (!attrs) return attributes;
 

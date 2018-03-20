@@ -12,11 +12,11 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import ReactHTMLConverter from '../src/integrations/browser';
 
-const Test = React.createClass({
+class Test extends React.Component {
 	render() {
-		return React.createElement('div', null, this.props.text);
+		return <div>{this.props.text}</div>;
 	}
-});
+}
 
 const renderTest = (reactEl, expectedHTML) => {
 	expect(ReactDOMServer.renderToStaticMarkup(reactEl)).toBe(expectedHTML);
@@ -62,7 +62,7 @@ describe('main:node', () => {
 
 	it('should parse styles', () => {
 		const converter = new ReactHTMLConverter();
-		const html = '<div style="background-color: #fff;"></div>';
+		const html = '<div style="background-color:#fff"></div>';
 
 		renderTest(converter.convert(html), html);
 	});
