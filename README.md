@@ -64,7 +64,7 @@ The ReactHTMLConverter is also able to create React components from the HTML str
 Please note that any sibling nodes of a React component will not be rendered! Make sure to wrap the component with a div element.
 
 ### Static rendering
-You can use the static method `convertStatic` of the ReactHTMLConverter class to render the given HTML string as static elements. React will not be aware of the content rendered by this method and React components will not be rendered by this method.
+If you just want to quickly render a html string, you can import the `convertStatic` function of this module. With this function only the root node will be converted to a React element. All child nodes will be rendered with `dangerouslySetInnerHTML`.
 
 ## Disclosure
 
