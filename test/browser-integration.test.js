@@ -10,7 +10,7 @@ global.DOMParser = class DOMParserMock {
 
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { ReactHTMLConverter, convertStatic } from '../src/integrations/browser';
+import ReactHTMLConverter, { convertStatic } from '../src/integrations/browser';
 
 class Test extends React.Component {
 	render() {

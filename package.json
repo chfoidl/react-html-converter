@@ -1,6 +1,6 @@
 {
   "name": "react-html-converter",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Converts a raw HTML string into React Elements or even React Components. Ships with integrations for node and browser.",
   "keywords": [
     "react",

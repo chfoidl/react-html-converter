@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { ReactHTMLConverter, convertStatic } from '../src/integrations/node';
+import ReactHTMLConverter, { convertStatic } from '../src/integrations/node';
 
 class Test extends React.Component {
 	render() {
