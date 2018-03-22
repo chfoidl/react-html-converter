@@ -2,6 +2,8 @@
 
 This module converts a raw HTML string to a React element or an array of React elements. Component rendering is also supported.  
 
+> Want to use this module with Preact? Checkout the Preact version - [preact-html-converter](https://github.com/Sethorax/preact-html-converter)
+
 ## Installation
 
 Install via **npm**:  
